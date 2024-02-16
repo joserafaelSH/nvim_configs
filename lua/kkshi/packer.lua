@@ -5,8 +5,10 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
-
+    use 'wbthomason/packer.nvim'
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                            , branch = '0.1.x',
@@ -59,11 +61,17 @@ return require('packer').startup(function(use)
 			{'hrsh7th/cmp-nvim-lsp'},
 			{'hrsh7th/cmp-nvim-lua'},
 
-			-- Snippets
+            -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
         }
     }
+
+    use {
+        "prettier/vim-prettier",
+        run = "yarn install --frozen-lockfile --production",
+    }
+
 end)
 
 
