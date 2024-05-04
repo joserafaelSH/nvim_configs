@@ -3,6 +3,8 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
+
+
 return require('packer').startup(function(use)
 	-- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -71,6 +73,19 @@ return require('packer').startup(function(use)
         "prettier/vim-prettier",
         run = "yarn install --frozen-lockfile --production",
     }
+
+    use {
+  "folke/which-key.nvim", 
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 
 end)
 

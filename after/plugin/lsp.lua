@@ -9,7 +9,6 @@ require('mason-lspconfig').setup({
 		'eslint',
 		'lua_ls',
 		'rust_analyzer',
-        'golangci_lint_ls',
         'gopls',
 	},
 	handlers = {
