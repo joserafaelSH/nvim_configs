@@ -1,0 +1,2 @@
+require("kkshi")
+print("hello")
