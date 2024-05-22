@@ -29,10 +29,20 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "tsserver",
+                "jsonls",
+                "tailwindcss",
+                "tsserver",
+                "html",
+                "htmx",
+                "dockerls",
+                "docker_compose_language_service",
+                "cssls",
+
+
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -44,7 +54,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
                                 }
@@ -66,7 +76,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<tab>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
@@ -90,4 +100,3 @@ return {
         })
     end
 }
-
